@@ -86,45 +86,105 @@ import React, { useState } from 'react';
 import '../../src/index.css'; // Import your CSS file
 
 function Form() {
+    // const [name, setName] = useState("");
+    // const [title, setTitle] = useState("");
+    // const [selectedImage, setSelectedImage] = useState(null);
+    // const [instructions, setInstruction] = useState("");
+    // const [ingredients, setIngredients] = useState("");
+
+    // const resetForm = ()=>{
+    //     setName("")
+    //     setTitle("")
+    //     setSelectedImage("")
+    //     setInstruction("")
+    //     setIngredients('')
+    // }
+    // console.log(resetForm)
+
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+
+    //     const newFormData = {
+    //         user: name,
+    //         title: title,
+    //         image: selectedImage,
+    //         instructions: instructions,
+    //         ingredients: ingredients
+    //     };
+
+        
+
+    //     fetch("http://localhost:3005/recipes", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(newFormData)
+    //     })
+    //     .then((response) => response.json())
+    //     .then((data) => console.log(data));
+
+    //     resetForm()
+    // }
+
+    const cloudName = "dqztn9qnj";
+    const presentName = "dzisx7sk";
+
     const [name, setName] = useState("");
     const [title, setTitle] = useState("");
     const [selectedImage, setSelectedImage] = useState(null);
     const [instructions, setInstruction] = useState("");
     const [ingredients, setIngredients] = useState("");
 
-    const resetForm = ()=>{
-        setName("")
-        setTitle("")
-        setSelectedImage("")
-        setInstruction("")
-        setIngredients('')
-    }
-    console.log(resetForm)
+    const resetForm = () => {
+        setName("");
+        setTitle("");
+        setSelectedImage(null);
+        setInstruction("");
+        setIngredients("");
+    };
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        const newFormData = {
-            user: name,
-            title: title,
-            image: selectedImage,
-            instructions: instructions,
-            ingredients: ingredients
-        };
+        // Upload image to Cloudinary
+        const formData = new FormData();
+        formData.append('file', selectedImage);
+        formData.append('upload_preset', presentName); // Replace with your actual Cloudinary upload preset
 
-        
-
-        fetch("http://localhost:3005/recipes", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newFormData)
+        fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+            method: 'POST',
+            body: formData,
         })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+            .then(response => response.json())
+            .then(data => {
+                // Get the Cloudinary URL or public ID from the response
+                const cloudinaryUrl = data.secure_url || data.public_id;
 
-        resetForm()
+                // Now you can send the rest of your form data (including the Cloudinary URL) to your server
+                const newFormData = {
+                    user: name,
+                    title: title,
+                    image: cloudinaryUrl,
+                    instructions: instructions,
+                    ingredients: ingredients,
+                };
+
+                // Handle form submission (e.g., send data to server)
+                fetch("http://localhost:3005/recipes", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newFormData)
+                })
+                    .then((response) => response.json())
+                    .then((data) => console.log(data));
+
+                // Clear the form after successful submission
+                resetForm();
+            })
+            .catch(error => console.error('Error uploading image to Cloudinary:', error));
     }
 
     return (
