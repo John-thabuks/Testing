@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# Culinary-Connect App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Culinary-Connect is a React-based web application that allows users to explore and discover various cuisines, recipes, and cooking ideas. The app provides a user-friendly interface to navigate through different categories, view popular recipes, and search for specific recipes.
 
-## Available Scripts
+## Contributors
 
-In the project directory, you can run:
+- [Irene Ndinda](https://github.com/Ndindairene)
+- [Kevin Moino](https://github.com/sdfpt04)
+- [Chrispine Ochieng](https://github.com/OchiengJr)
+- [John Muthabuku](https://github.com/John-thabuks)
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clone the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/your-username/culinary-connect.git
+```
 
-### `npm run build`
+2. Navigate to the project directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd culinary-connect
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm start
+jsorn-server --watch db.json --port 3005
+```
 
-### `npm run eject`
+The app should now be running locally on `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Once the application is running, you can access it through the provided local URL. Explore different cuisines, check out popular recipes, and use the search functionality to find specific recipes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Features
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Category Component
 
-## Learn More
+The Category component provides a visually appealing way to navigate through different cuisine categories. Icons represent each category, and users can click on them to explore specific cuisines.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Popular Component
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The Popular component displays a selection of popular recipes. It uses the Splide slider for an interactive and visually appealing presentation of recipes.
 
-### Code Splitting
+3. Search Component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The Search component allows users to search for recipes. Simply enter the desired search term and press enter to see relevant results.
 
-### Analyzing the Bundle Size
+4. Veggies Component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The Veggies component showcases vegetarian picks. Similar to the Popular component, it uses the Splide slider to present a collection of vegetarian recipes.
 
-### Making a Progressive Web App
+5. Cuisine Component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The Cuisine component dynamically fetches and displays recipes based on a specified cuisine. Users can explore recipes from different cuisines by navigating to the corresponding pages.
 
-### Advanced Configuration
+6. Recipe Component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The Recipe component provides detailed information about a specific recipe, including instructions and ingredients. Users can access this information by clicking on a recipe from the main pages.
 
-### Deployment
+7. Searched Component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The Searched component displays search results based on user input. It dynamically fetches and presents recipes matching the search query.
 
-### `npm run build` fails to minify
+8. Form Component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The Form component allows users to submit their own recipes. It includes a form for providing details such as name, title, image, instructions, and ingredients. The form integrates with Cloudinary for image uploads.
+
+## Contributing
+
+We welcome contributions from the community! If you'd like to contribute to the project, please follow these steps:
+
+    1. Fork the repository.
+    2. Create a new branch: `git checkout -b feature-name``.
+    3. Make your changes and commit them: `git commit -m 'Add new feature'`.
+    4. Push to the branch: `git push origin feature-name`.
+    5. Submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+

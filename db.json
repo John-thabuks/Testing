@@ -97,6 +97,14 @@
       "instructions": "Testing instructions",
       "ingredients": "Testing ingredients",
       "id": 15
+    },
+    {
+      "user": "chrispine",
+      "title": "Cake",
+      "image": "https://res.cloudinary.com/dqztn9qnj/image/upload/v1702813644/wmfzixt6g7gqutdmnbvd.png",
+      "instructions": "Cake instructions using binary",
+      "ingredients": "Binary instructions of cakes",
+      "id": 16
     }
   ]
 }
