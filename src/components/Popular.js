@@ -10,7 +10,7 @@ function Popular() {
   useEffect(() => {
     const check = localStorage.getItem("popular");
 
-    if (check) {
+    if (check &&  check !== "undefined") {
       setPopular(JSON.parse(check));
     } else {
       fetch(
@@ -19,8 +19,12 @@ function Popular() {
         .then((response) => response.json())
         .then((data) => {
            
-          localStorage.setItem("popular", JSON.stringify(data.recipes));
-          setPopular(data.recipes);
+          // localStorage.setItem("popular", JSON.stringify(data.recipes));
+          // setPopular(data.recipes);
+          if (data.recipes) {
+            localStorage.setItem("popular", JSON.stringify(data.recipes));
+            setPopular(data.recipes);
+          }
         })
         .catch((error) => console.error('Error fetching recipes:', error));
     }

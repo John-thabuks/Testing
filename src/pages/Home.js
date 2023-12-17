@@ -1,6 +1,7 @@
 import Popular from "../components/Popular";
 import Veggies from "../components/Veggies";
 import {motion} from "framer-motion"
+import Form from "./Forms"
 
 
 function Home() {
@@ -13,6 +14,7 @@ function Home() {
     >
         <Veggies />
         <Popular />
+        <Form />
     </motion.div>
   )
 }
