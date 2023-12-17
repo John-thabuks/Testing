@@ -18,12 +18,12 @@ function Category() {
             <h4>American</h4>
         </Slink>
 
-        <Slink to={"/cuisine/Thai"}>
+        <Slink to={"/cuisine/European"}>
             <GiNoodles />
             <h4>European</h4>
         </Slink>
 
-        <Slink to={"/cuisine/Japanese"}>
+        <Slink to={"/cuisine/Asian"}>
             <GiChopsticks />
             <h4>Asian</h4>
         </Slink>
